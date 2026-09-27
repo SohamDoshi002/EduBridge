@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBridge - India Government Scholarship Portal</title>
+    
+    <!-- External Google Fonts for Professional Government Portal Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- EXPERIMENT 4: Internal Style Sheet -->
+    <style>
+        /* EXPERIMENT 10: Color modes (RGBA, HSL) & Typography */
+        :root {
+            --primary: hsl(210, 85%, 35%);
+            --secondary: rgba(46, 125, 50, 0.9);
+            --bg-light: #f4f7f6;
+            --accent: #ff9800;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-tagline: 'Cinzel', serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        /* Basic Setup */
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* EXPERIMENT 5: Linear Gradient Header */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), var(--primary);
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        /* EXPERIMENT 6: CSS Animation */
+        header h1 {
+            margin: 0;
+            font-family: var(--font-heading);
+            font-size: 2.5em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-family: var(--font-tagline);
+            font-size: 1.15em;
+            letter-spacing: 1.5px;
+            color: #ffd54f;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* EXPERIMENT 7 & 8: Sticky Navigation Bar */
+        nav {
+            background-color: #1565c0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            transition: background 0.3s;
+        }
+
+        /* EXPERIMENT 7: Pseudo-class :hover */
+        nav a:hover {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        /* Single Main Container */
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 25px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        /* EXPERIMENT 1, 3: Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-family: var(--font-body);
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        /* EXPERIMENT 7: Structural Pseudo-class :nth-child */
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        
+        th { 
+            background-color: var(--primary); 
+            color: white; 
+            font-family: var(--font-heading);
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        /* EXPERIMENT 9: Advanced CSS Selectors */
+        input[type="text"], input[type="email"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0 14px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+            font-size: 0.95em;
+        }
+
+        /* EXPERIMENT 7: :focus Pseudo-class */
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            background-color: #eef5ff;
+        }
+
+        .search-box {
+            border: 2px solid var(--primary) !important;
+            font-size: 15px;
+        }
+
+        /* Horizontal Eligibility Card */
+        .checker-card {
+            background: #f0f4f9;
+            padding: 22px;
+            border-radius: 6px;
+            border-top: 4px solid var(--primary);
+            margin: 25px 0;
+        }
+
+        .grid-2 {
+            display: flex;
+            gap: 15px;
+        }
+
+        .grid-2 > div {
+            flex: 1;
+        }
+
+        /* EXPERIMENT 6: CSS Transform on Hover */
+        .btn {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+            background-color: #1b5e20;
+        }
+
+        label {
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        @media screen and (max-width: 600px) {
+            .grid-2 { flex-direction: column; }
+            nav a { float: none; display: block; }
+        }
+    </style>
+
+    <!-- EXPERIMENT 11: Embedded JavaScript -->
+    <script>
+        // EXPERIMENT 12: Search Filter Function
+        function searchScholarships() {
+            var input = document.getElementById("searchInput").value.toLowerCase();
+            var table = document.getElementById("scholarshipTable");
+            var tr = table.getElementsByTagName("tr");
+
+            for (var i = 1; i < tr.length; i++) {
+                var nameCol = tr[i].getElementsByTagName("td")[0];
+                var categoryCol = tr[i].getElementsByTagName("td")[1];
+                
+                if (nameCol || categoryCol) {
+                    var nameText = nameCol.textContent || nameCol.innerText;
+                    var categoryText = categoryCol.textContent || categoryCol.innerText;
+                    
+                    if (nameText.toLowerCase().indexOf(input) > -1 || categoryText.toLowerCase().indexOf(input) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // EXPERIMENT 12: Eligibility Check Logic
+        function calculateEligibility() {
+            var income = document.getElementById("income").value;
+            var marks = document.getElementById("marks").value;
+            var res = document.getElementById("resMsg");
+
+            if (!income || !marks) {
+                alert("Please enter both Annual Income and Marks!");
+                return;
+            }
+
+            if (income <= 250000 && marks >= 60) {
+                res.style.color = "green";
+                res.innerHTML = "<b>Eligible:</b> High priority for 100% Central / State Govt Grants!";
+            } else if (income <= 600000 && marks >= 50) {
+                res.style.color = "darkorange";
+                res.innerHTML = "<b>Eligible:</b> Qualified for Partial Fee Waiver & Merit Grants.";
+            } else {
+                res.style.color = "red";
+                res.innerHTML = "<b>Notice:</b> Income exceeds default threshold, check specific merit schemes.";
+            }
+        }
+
+        function selectScheme(name) {
+            document.getElementById("schemeInput").value = name;
+            alert("Selected Scheme: " + name + "\nForm updated below!");
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            var name = document.getElementById("studentName").value;
+            var scheme = document.getElementById("schemeInput").value;
+
+            if(!scheme) {
+                alert("Please select a government scholarship scheme first!");
+                return;
+            }
+
+            alert("Application submitted successfully for " + name + " under scheme: " + scheme);
+            document.getElementById("applForm").reset();
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Header with Tagline -->
+    <header>
+        <h1>EduBridge India</h1>
+        <p>"Connecting India to Its Future"</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#schemes">Find Schemes</a>
+        <a href="#checker">Eligibility Tool</a>
+        <a href="#apply">Apply Online</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- About Section -->
+        <article id="about">
+            <h2>Our Mission</h2>
+            <p>Many government scholarships in India remain unutilized every year simply because students are unaware of their existence. <strong>EduBridge</strong> acts as a dedicated bridge to bring verified central and state government welfare schemes directly to students from lower-income backgrounds.</p>
+        </article>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid #eee;">
+
+        <!-- Search Tool Section -->
+        <section id="schemes">
+            <h3>Government Scholarship Finder</h3>
+            <p><small style="color: #666;">Type a keyword (e.g., "Girl", "NSP", "Minority", "Tuition") to filter schemes:</small></p>
+            
+            <input type="text" id="searchInput" class="search-box" onkeyup="searchScholarships()" placeholder="🔍 Search scholarships by name or category...">
+
+            <table id="scholarshipTable">
+                <thead>
+                    <tr>
+                        <th>Scholarship / Scheme Name</th>
+                        <th>Category / Beneficiary</th>
+                        <th>Max Income Limit</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NSP Post-Matric Scholarship</td>
+                        <td>SC / ST / OBC Students</td>
+                        <td>₹ 2,50,000 / year</td>
+                        <td><button class="btn" onclick="selectScheme('NSP Post-Matric Scholarship')">Select Scheme</button></td>
+                    </tr>
+                    <tr>
+                        <td>PM-YASASVI Scheme</td>
+                        <td>OBC / EBC / DNT Students</td>
+                        <td>₹ 2,50,000 / year</td>
+                        <td><button class="btn" onclick="selectScheme('PM-YASASVI Scheme')">Select Scheme</button></td>
+                    </tr>
+                    <tr>
+                        <td>AICTE Pragati Scheme</td>
+                        <td>Girl Child (Technical Degree/Diploma)</td>
+                        <td>₹ 8,00,000 / year</td>
+                        <td><button class="btn" onclick="selectScheme('AICTE Pragati Scheme')">Select Scheme</button></td>
+                    </tr>
+                    <tr>
+                        <td>State Tuition Fee Waiver (TFW)</td>
+                        <td>Economically Weaker Section (EWS)</td>
+                        <td>₹ 8,00,000 / year</td>
+                        <td><button class="btn" onclick="selectScheme('State Tuition Fee Waiver')">Select Scheme</button></td>
+                    </tr>
+                    <tr>
+                        <td>Begum Hazrat Mahal National Grant</td>
+                        <td>Minority Girl Students</td>
+                        <td>₹ 2,00,000 / year</td>
+                        <td><button class="btn" onclick="selectScheme('Begum Hazrat Mahal Grant')">Select Scheme</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Horizontal Full-Width Eligibility Tool Section -->
+        <section id="checker" class="checker-card">
+            <h3>Quick Eligibility Check</h3>
+            <p><small style="color: #555;">Enter your details below to quickly test your eligibility range for central/state grants.</small></p>
+            
+            <div class="grid-2">
+                <div>
+                    <label for="income">Family Annual Income (₹):</label>
+                    <input type="number" id="income" placeholder="e.g. 150000">
+                </div>
+                <div>
+                    <label for="marks">10th / 12th Marks (%):</label>
+                    <input type="number" id="marks" placeholder="e.g. 75">
+                </div>
+            </div>
+
+            <button class="btn" style="width: 100%; margin-top: 5px;" onclick="calculateEligibility()">Evaluate Eligibility</button>
+            <p id="resMsg" style="margin-top: 12px; font-size: 1em;"></p>
+        </section>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid #eee;">
+
+        <!-- Application Form -->
+        <section id="apply">
+            <h2>Government Grant Application Form</h2>
+            <form id="applForm" onsubmit="submitForm(event)">
+                
+                <label>Selected Government Scheme:</label>
+                <input type="text" id="schemeInput" readonly placeholder="Click 'Select Scheme' from the table above">
+
+                <label for="studentName">Student Full Name:</label>
+                <input type="text" id="studentName" required placeholder="As per official documents">
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" required placeholder="student@example.com">
+
+                <label for="phone">Mobile Number (Aadhaar Linked):</label>
+                <input type="number" id="phone" required placeholder="10-digit mobile number">
+
+                <label>Social Category:</label><br>
+                <input type="radio" name="cat" value="General" id="r1" checked> <label for="r1">General / EWS</label> &nbsp;
+                <input type="radio" name="cat" value="SC/ST" id="r2"> <label for="r2">SC / ST</label> &nbsp;
+                <input type="radio" name="cat" value="OBC" id="r3"> <label for="r3">OBC / Minority</label>
+                <br><br>
+
+                <label>Required Documents Ready:</label><br>
+                <input type="checkbox" id="c1"> <label for="c1">Aadhaar Card</label> &nbsp;
+                <input type="checkbox" id="c2"> <label for="c2">Income Certificate</label> &nbsp;
+                <input type="checkbox" id="c3"> <label for="c3">Domicile Certificate</label>
+                <br><br>
+
+                <label for="state">State of Residence:</label>
+                <select id="state">
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Other">Other State</option>
+                </select>
+
+                <label for="file">Upload Income Certificate (PDF/Image):</label>
+                <input type="file" id="file">
+
+                <label for="address">Residential Address:</label>
+                <textarea id="address" rows="3" placeholder="Enter complete residential address"></textarea>
+
+                <input type="submit" class="btn" value="Submit Grant Application">
+                <input type="reset" class="btn" value="Reset Form" style="background:#757575;">
+            </form>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; background: #222; color: white; padding: 15px; margin-top: 30px; font-size: 0.9em;">
+        <p>&copy; 2026 EduBridge Portal | Non-Profit Educational Support Initiative</p>
+    </footer>
+
+</body>
+</html>
